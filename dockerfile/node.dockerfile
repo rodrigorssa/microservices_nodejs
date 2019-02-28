@@ -4,5 +4,5 @@ RUN RUN npm config set strict-ssl false
 COPY . /var/www
 WORKDIR /var/www
 RUN npm install
-ENTRYPOINT ["npm","run","dev"]
+ENTRYPOINT ["npm","start"]
 EXPOSE 3000
