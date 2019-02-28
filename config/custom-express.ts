@@ -2,7 +2,7 @@ import * as express from 'express'
 import * as bodyParser from 'body-parser'
 import routes from '../app/routes/routes'
 
-const consign:any = require('consign')
+const consign = require('consign')
 const app = express();
 
 app.use(bodyParser.urlencoded({extended: true}))
