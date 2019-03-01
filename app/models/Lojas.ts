@@ -1,8 +1,6 @@
 import Database from "./Database";
-import { rejects } from "assert";
 
 class Lojas extends Database {
-
 
     salva(loja:JSON){
         return new Promise((resolve, reject) =>{

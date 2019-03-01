@@ -45,7 +45,7 @@ export default (app:any) => {
     app.put('/lojas/:id',(req:any,res:any) => {
         let id = req.params.id
         let lojaController = new LojaController()
-            lojaController.put(id,req,res)
+            lojaController.put(req,res,id)
     })
 
     app.delete('/lojas/:id',(req:any,res:any) => {

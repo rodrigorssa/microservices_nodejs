@@ -1,6 +1,6 @@
 import * as mySql from 'mysql'
 
-abstract class Database {
+class Database {
     protected _db:any;
 
     constructor(){

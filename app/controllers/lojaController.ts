@@ -84,7 +84,8 @@ class LojaController {
         
         //verificando se o ID existe no banco
         const lojas = new Lojas()
-              lojas.buscaPorId(id).then((result =>{
+              lojas.buscaPorId(id)
+              .then((result:any) =>{
                 if(Object.keys(result).length === 0 ){
                     return res.status(400).json('ID não encontrado, verifique seus dados')
                 }
@@ -99,7 +100,7 @@ class LojaController {
                         throw new Error(err)
                     })
 
-              }))
+              })
               .catch((err) =>  {
                 throw new Error(err)
             })
@@ -110,7 +111,7 @@ class LojaController {
     delete(id:number,req:any,res:any){
         //verificando se o ID existe no banco
         const lojas = new Lojas()
-            lojas.buscaPorId(id).then((result =>{
+            lojas.buscaPorId(id).then((result:any) =>{
                 if(Object.keys(result).length === 0 ){
                     return res.status(400).json('ID não encontrado, verifique seus dados')
                 }
@@ -124,7 +125,7 @@ class LojaController {
                         throw new Error(err)
                     })
 
-            }))
+            })
             .catch((err) =>  {
                 throw new Error(err)
             })
