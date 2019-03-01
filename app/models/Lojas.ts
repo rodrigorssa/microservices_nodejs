@@ -1,4 +1,5 @@
 import Database from "./Database";
+import { rejects } from "assert";
 
 class Lojas extends Database {
 
@@ -7,8 +8,7 @@ class Lojas extends Database {
         return new Promise((resolve, reject) =>{
             this._db.query('INSERT INTO lojas SET ? ', loja, (err:any, result:any) => {
                 if(err) {
-                    reject('Erro ao inserir dados: '+ err)
-                    return;
+                    return reject('Erro ao inserir dados: '+ err)    
                 }
                 resolve(result);
             })
@@ -17,21 +17,39 @@ class Lojas extends Database {
 
     buscaLojas(params?: any){
 
-        let filtro = (params) ? `WHERE state = '${params.estado}' AND city = '${params.cidade}'` : ''
+        let filtro = (params) ? 'WHERE state = ? AND city = ?' : ''
         let consulta = `SELECT * FROM lojas ${filtro}`
         console.log(consulta);
         return new Promise((resolve,reject) => {
-            this._db.query(consulta,(err:any,result:any) => {
+            this._db.query(consulta, [params.estado,params.cidade], (err:any,result:any) => {
                 if(err) {
-                    reject('Erro ao buscar dados: '+ err)
-                    return;
+                    return reject('Erro ao buscar dados: '+ err)
                 }
-                resolve(result);
+               return resolve(result);
             })
         })
     }
 
-
+    buscaPorId(id:number){
+        return new Promise((resolve,reject) =>{
+            this._db.query('SELECT * FROM lojas WHERE id = ?', id, (err:any,result:any) => {
+                if(err){
+                    return reject('Erro ao realizar consulta')
+                }
+                return resolve(result)
+            })
+        })
+    }
+    buscaPorEstado(estado:string){
+        return new Promise((resolve,reject) =>{
+            this._db.query('SELECT * FROM lojas WHERE state = ?', estado, (err:any,result:any) => {
+                if(err){
+                    return reject('Erro ao realizar consulta')
+                }
+                return resolve(result)
+            })
+        })
+    }
 }
 
 export default Lojas

@@ -47,6 +47,38 @@ class LojaController {
                 throw new Error(err)
             })
     }
+
+    getById(req:any,res:any,id:number){
+        const lojas = new Lojas()
+        lojas.buscaPorId(id)
+            .then((result:any) => {
+                //verificando se existe control c control v do método acima
+                if(Object.keys(result).length === 0 ){
+                    res.status(400).json('Nada Encontrado')
+                    return
+                }
+                res.status(200).json(result)
+            })
+            .catch((err) =>  {
+                throw new Error(err)
+            })
+    }
+
+    getByState(req:any,res:any,state:string){
+        const lojas = new Lojas()
+        lojas.buscaPorEstado(state)
+            .then((result:any) => {
+                //verificando se existe control c control v do método acima
+                if(Object.keys(result).length === 0 ){
+                    res.status(400).json('Nada Encontrado')
+                    return
+                }
+                res.status(200).json(result)
+            })
+            .catch((err) =>  {
+                throw new Error(err)
+            })
+    }
 }
 
 
