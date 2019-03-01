@@ -26,4 +26,4 @@
 * `git clone https://github.com/rodrigorssa/microservices_nodejs.git`
 * `cd microservices_nodejs`
 * `docker-compose up`
-* Rota inicial : http://localhost:3000
+* O arquivo de banco de dados se encontra em '/config/table.sql'
