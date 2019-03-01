@@ -66,7 +66,16 @@ class Lojas extends Database {
         })
     }
 
-
+    deletar(id:number){
+        return new Promise((resolve, reject) =>{
+            this._db.query('DELETE FROM lojas WHERE id = ?', id, (err:any,result:any) => {
+                if(err){
+                     return reject('erro ao atualizar dado')
+                }
+                return resolve(result)
+            })
+        })
+    }
 }
 
 export default Lojas

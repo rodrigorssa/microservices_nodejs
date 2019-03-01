@@ -28,6 +28,7 @@ export default (app:any) => {
 
 
     })
+    
     app.get('/lojas/',(req:any,res:any) => {
  
         let lojaController = new LojaController()
@@ -37,13 +38,20 @@ export default (app:any) => {
  
     app.post('/lojas',(req:any,res:any) => {
         //instanciando objeto Controller e passando os dados de request e response
-        let lojaController = new LojaController();
+        let lojaController = new LojaController()
             lojaController.post(req,res)
     })
 
     app.put('/lojas/:id',(req:any,res:any) => {
         let id = req.params.id
-        let lojaController = new LojaController();
+        let lojaController = new LojaController()
             lojaController.put(id,req,res)
     })
+
+    app.delete('/lojas/:id',(req:any,res:any) => {
+        let id = req.params.id 
+        let lojaController = new LojaController()
+            lojaController.delete(id,req,res)
+    })
+
 }
