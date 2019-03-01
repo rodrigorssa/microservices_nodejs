@@ -1,0 +1,308 @@
+{
+	"info": {
+		"_postman_id": "7d6ed13b-179a-4800-89b6-ea21672836c7",
+		"name": "Testes desafio 1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "localhost:3000/lojas/",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\n        \"name\": \"Loja H\",\n        \"address\": \"Rua teste, 777\",\n        \"phone\": \"(00) 3333-2222\",\n        \"cnpj\": \"00.000.222/0000-02\",\n        \"workingHour\": \"asdasdas das 11hs às 23hs\",\n        \"city\": \"Cidade DEF\",\n        \"state\": \"C\"\n    }"
+				},
+				"url": {
+					"raw": "localhost:3000/lojas/",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"lojas",
+						""
+					]
+				},
+				"description": "mostrar todas as lojas"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/lojas/A",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:3000/lojas/A",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"lojas",
+						"A"
+					]
+				},
+				"description": "Buscando todas as lojas com o 'state' A"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/lojas/B",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:3000/lojas/B",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"lojas",
+						"B"
+					]
+				},
+				"description": "buscando lojas com 'state' B"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/lojas/5",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\n        \"name\": \"Loja G\",\n        \"address\": \"Rua teste, 777\",\n        \"phone\": \"(00) 3333-2222\"\n\n    }"
+				},
+				"url": {
+					"raw": "localhost:3000/lojas/5",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"lojas",
+						"5"
+					]
+				},
+				"description": "buscando loja com ID 5"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/lojas/5",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\n        \"name\": \"Loja G\",\n        \"address\": \"Rua teste, 777\",\n        \"phone\": \"(00) 3333-2222\"\n\n    }"
+				},
+				"url": {
+					"raw": "localhost:3000/lojas/5",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"lojas",
+						"5"
+					]
+				},
+				"description": "Atualizando loja com o ID 5"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/lojas/",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\n        \"name\": \"Loja F\",\n        \"address\": \"Rua teste, 777\",\n        \"phone\": \"(00) 3333-3333\",\n        \"cnpj\": \"00.000.000/5555-03\",\n        \"workingHour\": \"Diariamente das 11hs às 23hs\",\n        \"city\": \"Cidade FGH\",\n        \"state\": \"C\"\n    }"
+				},
+				"url": {
+					"raw": "localhost:3000/lojas/",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"lojas",
+						""
+					]
+				},
+				"description": "Inserindo loja no banco de dados"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/lojas/B/Cidade DEF",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\n        \"name\": \"asdasdasd\",\n        \"address\": \"Rua Abc, 000\",\n        \"phone\": \"(00) 0000-5543\",\n        \"cnpj\": \"00.000.000/32222-00\",\n        \"workingHour\": \"assdsa das 11hs às 23hs\",\n        \"city\": \"Cidade ABC\",\n        \"state\": \"C\"\n    }"
+				},
+				"url": {
+					"raw": "localhost:3000/lojas/B/Cidade DEF",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"lojas",
+						"B",
+						"Cidade DEF"
+					]
+				},
+				"description": "Buscando Lojas com o state 'B' e a cidade 'Cidade DEF'"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/lojas/A/Cidade ABC",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\n        \"name\": \"asdasdasd\",\n        \"address\": \"Rua Abc, 000\",\n        \"phone\": \"(00) 0000-5543\",\n        \"cnpj\": \"00.000.000/32222-00\",\n        \"workingHour\": \"assdsa das 11hs às 23hs\",\n        \"city\": \"Cidade ABC\",\n        \"state\": \"C\"\n    }"
+				},
+				"url": {
+					"raw": "localhost:3000/lojas/A/Cidade ABC",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"lojas",
+						"A",
+						"Cidade ABC"
+					]
+				},
+				"description": "buscando lojas com o state 'A' e cidade 'Cidade ABC'"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3000/lojas/2",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\n        \"name\": \"asdasdasd\",\n        \"address\": \"Rua Abc, 000\",\n        \"phone\": \"(00) 0000-5543\",\n        \"cnpj\": \"00.000.000/32222-00\",\n        \"workingHour\": \"assdsa das 11hs às 23hs\",\n        \"city\": \"Cidade ABC\",\n        \"state\": \"C\"\n    }"
+				},
+				"url": {
+					"raw": "localhost:3000/lojas/2",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"lojas",
+						"2"
+					]
+				},
+				"description": "Apagando loja com o ID 2"
+			},
+			"response": []
+		}
+	]
+}

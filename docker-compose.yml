@@ -12,7 +12,7 @@ services:
   node:
     build:
       dockerfile: ./docker/node.dockerfile
-      context: ./
+      context: .
     image: node
     container_name: node_desafio_1
     ports:
