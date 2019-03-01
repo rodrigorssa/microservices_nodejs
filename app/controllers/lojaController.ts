@@ -32,7 +32,21 @@ class LojaController {
             })
     }
 
-    
+    getAll(req:any,res:any,params?:object){
+        const lojas = new Lojas()
+        lojas.buscaLojas(params)
+            .then((result:any) => {
+                //verificando se existe algo dentro do array, caso não tenha, retorna mensagem 'nada encontrado'
+                if(Object.keys(result).length === 0 ){
+                    res.status(400).json('Nada Encontrado')
+                    return
+                }
+                res.status(200).json(result)
+            })
+            .catch((err) =>  {
+                throw new Error(err)
+            })
+    }
 }
 
 

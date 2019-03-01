@@ -5,7 +5,15 @@ export default (app:any) => {
         res.send('funcionando!')
     })
 
-    app.post('/lojas',(req:any,res:any)=>{
+    app.get('/lojas/:estado/:cidade',(req:any,res:any) => {
+
+        let params = req.params
+        let lojaController = new LojaController()
+            lojaController.getAll(req,res,params)
+
+    })
+ 
+    app.post('/lojas',(req:any,res:any) => {
 
         //instanciando objeto Controller e passando os dados de request e response
         let lojaController = new LojaController();
