@@ -6,8 +6,9 @@ export default (app:any) => {
     })
 
     app.post('/lojas',(req:any,res:any)=>{
-        let loja:any = req.body
+
+        //instanciando objeto Controller e passando os dados de request e response
         let lojaController = new LojaController();
-            lojaController.post(loja,res)
+            lojaController.post(req,res)
     })
 }

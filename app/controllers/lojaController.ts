@@ -2,14 +2,37 @@ import Lojas from '../models/Lojas'
 
 class LojaController {
 
-    post(loja:JSON,res:any){
-        let lojas = new Lojas()
+    post(req:any,res:any){
+        
+        //validando dados de entrada
+        req.assert('name','Campo name é obrigatório.').notEmpty()
+        req.assert('address','Campo address é obrigatório.').notEmpty()
+        req.assert('phone','Campo phone é obrigatório.').notEmpty()
+        req.assert('cnpj','Campo cnpj é obrigatório.').notEmpty()
+        req.assert('workingHour','Campo workingHour é obrigatório.').notEmpty()
+        req.assert('city','Campo city é obrigatório.').notEmpty()
+        req.assert('state','Campo state é obrigatório.').notEmpty()
+
+        let err:any = req.validationErrors()
+
+        //se tiver algum erro o post não envia e mostra mensagem de erro
+        if(err) {
+            console.log(err)
+            res.status(400).json(err[0].msg)
+            return
+        }
+
+        //adicionando dados em variável, instanciando o objeto para salvar no bd
+        let loja = req.body
+        const lojas = new Lojas()
         lojas.salva(loja)
             .then((result:any) => res.status(201).json(result.insertId))
             .catch((err) =>  {
                 throw new Error(err)
             })
     }
+
+    
 }
 
 
