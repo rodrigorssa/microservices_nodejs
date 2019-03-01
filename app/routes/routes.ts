@@ -28,6 +28,12 @@ export default (app:any) => {
 
 
     })
+    app.get('/lojas/',(req:any,res:any) => {
+ 
+        let lojaController = new LojaController()
+        lojaController.getAll(req,res)
+
+    })
  
     app.post('/lojas',(req:any,res:any) => {
         //instanciando objeto Controller e passando os dados de request e response

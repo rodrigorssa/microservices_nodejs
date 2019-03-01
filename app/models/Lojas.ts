@@ -17,11 +17,14 @@ class Lojas extends Database {
 
     buscaLojas(params?: any){
 
+        //ajustando a consulta para receber ou não parametros de busca
         let filtro = (params) ? 'WHERE state = ? AND city = ?' : ''
+        let dados = (params) ? [params.estado,params.cidade] : []
         let consulta = `SELECT * FROM lojas ${filtro}`
+
         console.log(consulta);
         return new Promise((resolve,reject) => {
-            this._db.query(consulta, [params.estado,params.cidade], (err:any,result:any) => {
+            this._db.query(consulta, dados, (err:any,result:any) => {
                 if(err) {
                     return reject('Erro ao buscar dados: '+ err)
                 }
