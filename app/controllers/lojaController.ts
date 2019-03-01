@@ -79,6 +79,34 @@ class LojaController {
                 throw new Error(err)
             })
     }
+
+    put(req:any,res:any,id:number){
+        
+        //verificando se o ID existe no banco
+        const lojas = new Lojas()
+              lojas.buscaPorId(id).then((result =>{
+                if(Object.keys(result).length === 0 ){
+                    return res.status(400).json('ID não encontrado, verifique seus dados')
+                }
+
+                //caso exista o ID, atualiza os campos enviados
+                let loja = req.body
+                lojas.atualiza(loja, id)
+                    .then(result => {
+                        res.status(200).json(result)
+                    })
+                    .catch(err => {
+                        throw new Error(err)
+                    })
+
+              }))
+              .catch((err) =>  {
+                throw new Error(err)
+            })
+        
+              
+    }   
+    
 }
 
 
