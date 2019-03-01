@@ -5,7 +5,7 @@ abstract class Database {
 
     constructor(){
         this._db = mySql.createConnection({
-            host     : 'http://192.168.99.100:3306',
+            host     : '192.168.99.100',
             user     : 'root',
             password : 'senha',
             database : 'nossas_lojas'
